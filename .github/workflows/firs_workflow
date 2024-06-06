@@ -1,8 +1,13 @@
-
-name: Workflow Dispatch Example
-
+name: Workflow Dispatch 
+ 
 on:
- workflow_dispatch:
+ 
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+ 
+  workflow_dispatch:
    inputs:
      username:
        description: 'Your username'
@@ -16,4 +21,4 @@ jobs:
    steps:
      - name: Greet User
        run: |
-         echo "${{ inputs.username }} says hello, and favorite color is ${{ inputs.favorite_color }}"
+        echo "${{ inputs.username }} says hello, and favorite color is ${{ inputs.favorite_color }}"
