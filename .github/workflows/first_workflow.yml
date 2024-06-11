@@ -30,5 +30,6 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Echo Greeting
-       run: |
-         echo "${{ steps.greeting.outputs.GREETING }}"
+       env:
+         GREETING: ${{ steps.greeting.outputs.GREETING }}
+       run: echo "$GREETING"
